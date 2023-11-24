@@ -1,4 +1,4 @@
-export const API: string = "http://192.168.100.202:3000/api/messages";
+export const API: string = "/api/messages";
 
 export const MEMBERS: any = [
     {
