@@ -2,6 +2,9 @@
   "name": "messanger",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,9 +14,7 @@
   "dependencies": {
     "next": "14.0.3",
     "react": "^18",
-    "react-dom": "^18",
-    "react-hot-toast": "^2.4.1",
-    "sass": "^1.69.5"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -24,6 +25,8 @@
     "eslint-config-next": "14.0.3",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "react-hot-toast": "^2.4.1",
+    "sass": "^1.69.5"
   }
 }
