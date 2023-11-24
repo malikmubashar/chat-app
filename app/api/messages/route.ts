@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+export const runtime = 'edge';
+
 const data: any = [
     {
         "_id": "996cbb35-5def-4173-a0c4-ebc73488739c",
