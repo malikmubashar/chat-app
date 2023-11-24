@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #f6f7f7;
+  --secondry: #ffffffe4;
+  --third: #39A7FF;
+  --mine: rgb(237, 152, 24);
+
+  --text: #1b1b1bf1;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+* {
+  @apply box-border p-0 m-0 transition-all;
+}
+
+body {
+  @apply bg-[--primary] text-[--text] h-screen w-full font-mono;
+}
+
+// page
+section {
+  >* {
+    ul {
+      transition-duration: 400ms;
+      transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-origin: 110px -30px;
+      z-index: 20;
+
+      >li {
+        @apply p-2 hover:bg-[--secondry] text-sm min-w-[120px] text-center cursor-pointer;
+      }
+    }
+  }
+
+  >*:not(.me) {
+    >div {
+      border-top-left-radius: 0;
+    }
+  }
+
+  >*:is(.me) {
+    --third: var(--mine);
+    justify-content: flex-end;
+
+    >div {
+      border-top-right-radius: 0;
+
+      >div:first-child {
+        left: auto;
+        transform: translate(8px);
+      }
+
+      >div:nth-child(2) {
+        justify-content: flex-end;
+
+        >span {
+          @apply hidden;
+        }
+      }
+    }
+  }
+}
+
+
+// form
+form {
+
+  input {
+    @apply p-2 focus:outline-none transition-none rounded-md w-full opacity-70 shadow-md bg-[--secondry] focus:shadow-xl;
+  }
+
+}
+
+// profile
+.profile {
+  ul {
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: 50% -15px;
+
+    >li {
+      @apply p-2.5 bg-[--secondry] rounded-lg text-sm min-w-[140px] text-center cursor-pointer m-2 relative active:scale-110 ring-1 ring-[--primary];
+
+      &:hover:before {
+        @apply content-[attr(data-text)] absolute inset-0 bg-[--third] p-2.5 text-[--primary] rounded-lg shadow-inner;
+        clip-path: polygon(0 0, 100% 0, 50% 10000%);
+        animation: profile 1s 1 ease-in alternate;
+      }
+    }
+  }
+}
+
+@keyframes profile {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 50% .8%);
+  }
+
+  20% {
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+  }
+}
