@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <>
       <Profile sender={username} />
-      <main className="flex flex-col justify-start h-[90vh] overflow-y-scroll p-5">
+      <main className="flex flex-col justify-start h-[87vh] overflow-y-scroll p-5">
         <section className='flex flex-col gap-y-6 w-[min(95%,800px)] mx-auto '>
           {data.map((item: any, index: number) => {
             return <Box
