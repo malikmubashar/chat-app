@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { revalidateTag } from "next/cache";
-export const runtime = 'edge';
 
 const data: any = [
     {
         "_id": "996cbb35-5def-4173-a0c4-ebc73488739c",
-        "sender": "Malik",
+        "sender": "Mubashar",
         "text": "Hello I am Mubashar",
         "at": {
             "time": "14:24:29",
@@ -24,7 +22,6 @@ export async function POST(req: NextRequest) {
         const { message }: any = await req.json();
         if (!message) throw new Error("Message is required");
         data.push(message);
-        revalidateTag("messages");
 
         return NextResponse.json({ success: true });
     } catch (error: any) {
@@ -40,7 +37,6 @@ export async function DELETE(req: NextRequest) {
         if (index === -1) throw new Error("Message not found");
 
         data.splice(index, 1);
-        revalidateTag("messages");
 
         return NextResponse.json({ success: true });
     } catch (error: any) {

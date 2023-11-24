@@ -23,7 +23,7 @@ export default function Page() {
 
     return (
         <main className="w-full h-full flex flex-col justify-center items-center gap-y-2">
-            <h1 className="text-[calc(20px+4vw)] font-extrabold text-[--third]">Gandu FBI Waly</h1>
+            <h1 className="text-[calc(20px+4vw)] font-extrabold text-[--third]">Chat ON</h1>
             <p className="w-1/2 text-center opacity-50">Want to become a member? Contact with the boss.</p>
 
             <form

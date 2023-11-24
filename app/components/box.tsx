@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { API } from "secrets"
 
-export default function Box({ className, _id, text, sender, time }: any) {
+export default function Box({ active, _id, text, sender, time }: any) {
   const router = useRouter();
 
   const remove = async () => {
@@ -15,12 +15,12 @@ export default function Box({ className, _id, text, sender, time }: any) {
       }
     }), res = await req.json();
     res.error && toast.error(res.error);
-    res.success && toast.success(`${sender} successfully deleted a message!`);
+    res.success && toast.success(`${active} successfully deleted a message!`);
     router.refresh();
   };
 
   return (
-    <div className={"flex " + className}>
+    <div className={"flex" + (sender === active && " me" || "")}>
       {/* ------- */}
       <div className="bg-[--third] p-1 rounded-xl relative max-w-[min(95%,500px)] [&:hover>div:nth-child(2)>div]:scale-100">
         <div className="absolute top-0 left-0 right-0 -translate-x-2 w-0 h-0 border-8 border-transparent border-t-[--third]"></div>

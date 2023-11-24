@@ -3,10 +3,8 @@ import Box from "./components/box";
 import { cookies } from "next/headers";
 import Profile from './components/profile';
 
-export const runtime = 'edge';
-
 export default async function Home() {
-  const res = await fetch('http://localhost:3000/api/messages', { next: { tags: ['messages'] } });
+  const res = await fetch('http://localhost:3000/api/messages', { next: { revalidate: 0 } });
   const data = await res.json(), raw: any = cookies().get('_user_')?.value;
   const { username } = raw && JSON.parse(atob(raw));
 
@@ -20,7 +18,7 @@ export default async function Home() {
             return <Box
               key={index}
               _id={item._id}
-              className={me}
+              active={username}
               text={item.text}
               sender={item.sender}
               time={item.at?.time.slice(0, -3)}
